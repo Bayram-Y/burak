@@ -1,5 +1,6 @@
-// Architectural pattern: MVC(The Model-View-Controller), DI(Dependency Injection) , Frontend=> MVP(Model View Presenter)
-//
-// Design Pattern: Middleware Design Pattern, Decorater Pattern
+import dotenv from "dotenv";
+dotenv.config();
 
-// Design Pattern =>    Creational Pattern, Structural Pattern and Behavioural Pattern.
+console.log("PORT:", process.env.PORT);
+
+console.log("MONGO_URL:", process.env.MONGO_URL);
