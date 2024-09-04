@@ -1,9 +1,11 @@
-/* H-TASK: 
+// H-TASK: 
 
-shunday function tuzing, u integerlardan iborat arrayni argument sifatida qabul qilib, faqat positive qiymatlarni olib string holatda return qilsin
-MASALAN: getPositive([1, -4, 2]) return qiladi "12" */
+function getPositive(arraylist: number[]) {
+  arraylist.filter((ele) => {
+    if (ele > 0) {
+      console.log(ele);
+    }
+  });
+}
 
-function getPositive (arrlist: []) {
-    
-} 
-
+getPositive([1, -4, 2]);
