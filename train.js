@@ -10,3 +10,4 @@ function getHighestIndex(arr) {
 }
 
 getHighestIndex([5, 21, 12, 21, 8]);
+ 
