@@ -1,11 +1,27 @@
-// H-TASK: 
+//H2-TASK:
 
-function getPositive(arraylist: number[]) {
-  arraylist.filter((ele) => {
-    if (ele > 0) {
-      console.log(ele);
+function getDigits(argument: string) {
+  let stringNumber: string[] = [];
+  const arr = argument.split("");
+  arr.forEach((ele) => {
+    if (+ele) {
+      stringNumber.push(ele);
     }
   });
+  return stringNumber.join("").toString();
 }
 
-getPositive([1, -4, 2]);
+console.log(getDigits("m14i1t"));
+
+
+// H-TASK:
+
+// function getPositive(arraylist: number[]) {
+//   arraylist.filter((ele) => {
+//     if (ele > 0) {
+//       console.log(ele);
+//     }
+//   });
+// }
+
+// getPositive([1, -4, 2]);
