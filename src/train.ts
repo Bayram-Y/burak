@@ -26,6 +26,11 @@ console.log(getDigits("m14i1t"));
 
 // getPositive([1, -4, 2]);
 
+
+
+
+
+
 /* Project Standarts: 
  -Logging   standarts
  -Naming standarts 
