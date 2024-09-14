@@ -9,7 +9,8 @@ mongoose
     console.log("MongoDB connection succeed");
     const PORT = process.env.PORT ?? 3003;
     app.listen(PORT, function () {
-      console.log(`The serber is running successfully on port: ${PORT}`);
+      console.info(`The serber is running successfully on port: ${PORT}`);
+      console.info(`Admin project on http://localhost:${PORT}/admin \n`);
     });
   })
   .catch((err) => console.log("ERROR on connection on MongoDB", err));
