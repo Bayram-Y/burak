@@ -1,53 +1,49 @@
-// TASK I:
-/*
-Shunday function tuzing, u parametrdagi array ichida eng ko'p
-takrorlangan raqamni topib qaytarsin.
+function majorityElement(input: number[]): {
+  maxNum: number;
+  maxCount: number;
+} {
+  let maxNum = 0;
+  let maxCount = 0;
 
-MASALAN: majorityElement([1, 2, 3, 4, 5, 4, 3, 4]); return 4
+  for (let i = 0; i < input.length; i++) {
+    let count = 0;
 
-Yuqoridag misolda argument sifatida kiritilayotgan array tarkibida 4 soni ko'p takrorlanganligi uchun 4'ni return qilmoqda.
-
-*/
-// function majorityElement(numberArr: number[]) {
-//   const sortedNum: number[] = numberArr.sort((a, b) => a - b);
-//   let mostFrequentNum: number = sortedNum[0];
-//   let maxCount: number = 1;
-//   let currentCount: number = 1;
-
-//   for (let i = 1; i < sortedNum.length; i++) {
-//     if (sortedNum[i] === sortedNum[i - 1]) {
-//       currentCount++;
-//     } else {
-//       currentCount = 1;
-//     }
-
-//     if (currentCount > maxCount) {
-//       maxCount = currentCount;
-//       mostFrequentNum = sortedNum[i];
-//     }
-//   }
-
-//   return mostFrequentNum;
-// }
-
-// const numbers: number[] = [1, 2, 3, 4, 5, 4, 3, 4];
-// console.log(majorityElement(numbers));
-
-function majorityElement(input: number[]) {
-  let maxNum: number = 0;
-  let major: number | null = null;
-
-  input.forEach((ele) => {
-    const count = input.filter((x) => x === ele).length;
-    if (count > maxNum) {
-      maxNum = count;
-      major = ele;
+    for (let k = 0; k < input.length; k++) {
+      if (input[i] === input[k]) {
+        count++;
+      }
     }
-  });
-  return major;
+
+    if (count > maxCount) {
+      maxCount = count;
+      maxNum = input[i];
+    }
+
+    console.log(count);
+    
+  }
+
+  return { maxNum, maxCount };
 }
-const result = majorityElement([1, 2, 3, 4, 5, 4, 3, 4]);
-console.log(result);
+
+console.log(majorityElement([1, 2, 3, 4, 5, 4, 3, 4, 5]));
+// TASK I:
+
+// function majorityElement(input: number[]) {
+//   let maxNum: number = 0;
+//   let major: number | null = null;
+
+//   input.forEach((ele) => {
+//     const count = input.filter((x) => x === ele).length;
+//     if (count > maxNum) {
+//       maxNum = count;
+//       major = ele;
+//     }
+//   });
+//   return major;
+// }
+// const result = majorityElement([1, 2, 3, 4, 5, 4, 3, 4]);
+// console.log(result);
 
 // //H2-TASK:
 
