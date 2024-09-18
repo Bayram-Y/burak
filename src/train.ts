@@ -6,14 +6,28 @@ MASALAN: findLongestWord("I came from Uzbekistan!"); return "Uzbekistan!"
 Yuqoridagi text tarkibida 'Uzbekistan'
 eng uzun so'z bo'lganligi uchun 'Uzbekistan'ni qaytarmoqda */
 
-function findLongestWord(word: string) {
+function getLongest(word: string) {
   const arr = word.split(" ");
-  return word.split(" ").reduce((longest, current) => {
-    return current.length > longest.length ? current : longest;
+  console.log(arr);
+  // let current1 = 0;
+  let longest1 = "";
+  arr.forEach((ele) => {
+    if (ele.length > longest1.length) {
+      // let current1 = ele.length;
+      let longest1 = ele;
+    }
   });
 }
+console.log(getLongest("I came from Uzbekistan!"));
 
-console.log(findLongestWord("I came from Uzbekistan!"));
+// function findLongestWord(word: string) {
+//   const arr = word.split(" ");
+//   return word.split(" ").reduce((longest, current) => {
+//     return current.length > longest.length ? current : longest;
+//   });
+// }
+
+// console.log(findLongestWord("I came from Uzbekistan!"));
 
 /*
 let uzunligi = 0;
