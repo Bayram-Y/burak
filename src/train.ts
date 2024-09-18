@@ -97,3 +97,9 @@ let uzunligi = 0;
  - Error handling
 
  */
+
+ /* 
+ request join 
+ self destroy 
+
+ */
