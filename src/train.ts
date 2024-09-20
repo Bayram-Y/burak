@@ -1,3 +1,20 @@
+// TASK L:
+/*
+So'zlarni ketma - ketligini buzmasdan har bir so'zni
+alohida teskarisiga o'girib beradigan fucntion tuzing.
+Funtion yagona string qabul qilsin
+
+MASALAN: reverseSentence("we like coding!") return "ew ekil !gnidoc";
+Qaytayotgan natijaga e'tibor bersangiz, so'zlar joyi o'zgarmasdan turgan o'rnida teskarisiga o'girilmoqda
+*/
+
+function reverseSentence(input: string) {
+  const word = input.split("");
+  console.log(word);
+}
+
+reverseSentence("we like coding!");
+
 // TASK K:
 /*
 Berilayotgan parametr tarkibida nechta unli harf bor
@@ -8,26 +25,26 @@ MASALAN: countVowels("string"); return 1
 Yuqoridagi misolda 'string' so'zi tarkibida yagona unli harf 'i'
 bo'lganligi uchun '1'ni qaytarmoqda
 */
-function countVowels(input: string) {
-  let k = 0;
-  for (let i = 0; i < input.length; i++) {
-    if (input[i] === "i" || input[i] === "I") {
-      k++;
-    } else if (input[i] === "u" || input[i] === "U") {
-      k++;
-    } else if (input[i] === "e" || input[i] === "E") {
-      k++;
-    } else if (input[i] === "a" || input[i] === "A") {
-      k++;
-    } else if (input[i] === "y" || input[i] === "Y") {
-      k++;
-    } else if (input[i] === "o" || input[i] === "O") {
-      k++;
-    }
-  }
-  return k;
-}
-console.log(countVowels("string"));
+// function countVowels(input: string) {
+//   let k = 0;
+//   for (let i = 0; i < input.length; i++) {
+//     if (input[i] === "i" || input[i] === "I") {
+//       k++;
+//     } else if (input[i] === "u" || input[i] === "U") {
+//       k++;
+//     } else if (input[i] === "e" || input[i] === "E") {
+//       k++;
+//     } else if (input[i] === "a" || input[i] === "A") {
+//       k++;
+//     } else if (input[i] === "y" || input[i] === "Y") {
+//       k++;
+//     } else if (input[i] === "o" || input[i] === "O") {
+//       k++;
+//     }
+//   }
+//   return k;
+// }
+// console.log(countVowels("string"));
 
 // TASK J:
 /*
