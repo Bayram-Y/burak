@@ -151,3 +151,15 @@ let uzunligi = 0;
  self destroy 
 
  */
+
+/* Validation:
+ Frontend validation 
+ Backend Validation 
+ Database Validation
+
+ 
+  
+ ( Pipe validation)
+ 
+ 
+ */
