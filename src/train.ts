@@ -9,8 +9,12 @@ Qaytayotgan natijaga e'tibor bersangiz, so'zlar joyi o'zgarmasdan turgan o'rnida
 */
 
 function reverseSentence(input: string) {
-  const word = input.split("");
-  console.log(word);
+  let NewArray = [];
+  const word = input.split(" ");
+  word.forEach((ele) => {
+    const newString = ele.split("");
+    console.log(newString.reverse().toString());
+  });
 }
 
 reverseSentence("we like coding!");
