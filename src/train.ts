@@ -1,3 +1,28 @@
+// MIT TASK: M
+/*
+Shunday function tuzing, u raqamlardan tashkil topgan array qabul qilsin
+va array ichidagi har bir raqam uchun raqamning o'zi va hamda o'sha raqamni kvadratidan
+tashkil topgan object hosil qilib, hosil bo'lgan objectlarni array ichida qaytarsin
+
+MASALAN: MASALAN: getSquareNumbers([1, 2, 3]) return [{ number: 1, square: 1 }, { number: 2, square: 4 }, { number: 3, square: 9 }];
+
+*/
+
+function getSquareNumbers(input: number[]) {
+  let newArray: { number: number; square: number }[] = [];
+  for (let i = 0; i < input.length; i++) {
+    let arr = {
+      number: input[i],
+      square: Math.pow(input[i], 2),
+    };
+
+    newArray.push(arr);
+  }
+  console.log(newArray);
+}
+
+getSquareNumbers([1, 2, 3]);
+
 // TASK L:
 /*
 So'zlarni ketma - ketligini buzmasdan har bir so'zni
@@ -8,16 +33,16 @@ MASALAN: reverseSentence("we like coding!") return "ew ekil !gnidoc";
 Qaytayotgan natijaga e'tibor bersangiz, so'zlar joyi o'zgarmasdan turgan o'rnida teskarisiga o'girilmoqda
 */
 
-function reverseSentence(input: string) {
-  let NewArray = [];
-  const word = input.split(" ");
-  word.forEach((ele) => {
-    const newString = ele.split("");
-    console.log(newString.reverse().toString());
-  });
-}
+// function reverseSentence(input: string) {
+//   let NewArray = [];
+//   const word = input.split(" ");
+//   word.forEach((ele) => {
+//     const newString = ele.split("");
+//     console.log(newString.reverse().toString());
+//   });
+// }
 
-reverseSentence("we like coding!");
+// reverseSentence("we like coding!");
 
 // TASK K:
 /*
