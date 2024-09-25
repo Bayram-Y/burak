@@ -1,3 +1,32 @@
+// TASK N:
+/*
+Parametr sifatida yagona string qabul qiladigan function tuzing.
+Va bu function string'ni palindrom so'z yoki palindrom so'z emasligini aniqlab (boolean)
+'true' yokida 'false' qaytarsin.
+
+MASALAN: palindromCheck("dad") return true; palindromCheck("son") return false;
+Birinchi misolda 'dad' so'zini ikkala tarafdan o'qilganda ham bir xil ma'noni beradi (true)
+Ikkinchi misolda 'son' so'zini ikkala tarafdan o'qilganda bir xil ma'noni bermaydi (false)
+
+*Palindrom so'z deb o'ngdan chapga ham ~ chapdan o'ngga ham o'qilganda
+bir xil ma'noni beradigan so'zga aytiladi
+*/
+
+function palindromCheck(input: string) {
+  let newWord = "";
+  const arr = input.split("").reverse();
+  for (let i = 0; i < arr.length; i++) {
+    newWord += arr[i];
+  }
+  if (newWord === input) {
+    console.log(true);
+  } else {
+    console.log(false);
+  }
+}
+
+palindromCheck("dad");
+
 // MIT TASK: M
 /*
 Shunday function tuzing, u raqamlardan tashkil topgan array qabul qilsin
@@ -8,20 +37,20 @@ MASALAN: MASALAN: getSquareNumbers([1, 2, 3]) return [{ number: 1, square: 1 }, 
 
 */
 
-function getSquareNumbers(input: number[]) {
-  let newArray: { number: number; square: number }[] = [];
-  for (let i = 0; i < input.length; i++) {
-    let arr = {
-      number: input[i],
-      square: Math.pow(input[i], 2),
-    };
+// function getSquareNumbers(input: number[]) {
+//   let newArray: { number: number; square: number }[] = [];
+//   for (let i = 0; i < input.length; i++) {
+//     let arr = {
+//       number: input[i],
+//       square: Math.pow(input[i], 2),
+//     };
 
-    newArray.push(arr);
-  }
-  console.log(newArray);
-}
+//     newArray.push(arr);
+//   }
+//   console.log(newArray);
+// }
 
-getSquareNumbers([1, 2, 3]);
+// getSquareNumbers([1, 2, 3]);
 
 // TASK L:
 /*
