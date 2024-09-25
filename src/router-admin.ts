@@ -29,8 +29,8 @@ routerAdmin.get(
 );
 routerAdmin.post(
   "/product/create",
-  restaurantController.verifyRestaurant,
-  makeUpLoader("products").array("productImages", 5),
+  restaurantController.verifyRestaurant, // bor edi 
+  makeUpLoader("products").array("productImages", 5), // yoq bop qoldi
   productController.createNewProduct
 );
 routerAdmin.post(
