@@ -29,7 +29,7 @@ routerAdmin.get(
 );
 routerAdmin.post(
   "/product/create",
-  restaurantController.verifyRestaurant, // bor edi 
+  restaurantController.verifyRestaurant, // bor edi
   makeUpLoader("products").array("productImages", 5), // yoq bop qoldi
   productController.createNewProduct
 );
@@ -40,5 +40,11 @@ routerAdmin.post(
 );
 
 /** USER */
+
+routerAdmin.get(
+  "/user/all",
+  restaurantController.verifyRestaurant,
+  restaurantController.getUsers
+);
 
 export default routerAdmin;

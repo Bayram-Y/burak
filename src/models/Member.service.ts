@@ -64,7 +64,7 @@ class MemberService {
 
     try {
       const result = await this.memberModel.create(input);
-    console.log("passed: 5");
+      console.log("passed: 5");
 
       result.memberPassword = "";
       return result;
@@ -93,6 +93,16 @@ class MemberService {
     }
 
     return await this.memberModel.findById(member._id).exec();
+  }
+
+  public async getUsers(): Promise<Member[]> {
+    const result = await this.memberModel
+      .find({ memberType: MemberType.USER })
+      .exec();
+
+    if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+
+    return result;
   }
 }
 
