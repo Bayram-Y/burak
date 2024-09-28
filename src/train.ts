@@ -1,3 +1,20 @@
+// TASK P:
+/*
+Parametr sifatida yagona object qabul qiladigan function yozing.
+Qabul qilingan objectni nested array sifatida convert qilib qaytarsin
+
+MASALAN: objectToArray( {a: 10, b: 20}) return [['a', 10], ['b', 20]]
+*/
+function objectToArray(input: any) {
+  let newArray = [];
+  for (let key in input) {
+    newArray.push(key, input[key]);
+  }
+  console.log(newArray);
+}
+
+objectToArray({ a: 10, b: 20 });
+
 // TASK O:
 /*
 
@@ -10,17 +27,17 @@ Yuqoridagi misolda array tarkibida faqatgina ikkita yagona son mavjud bular 10 h
 Qolganlari nested bo'lib yoki type'lari number emas.
 
 */
-function calculateSumOfNumbers(input: (number | object | boolean | string)[]) {
-  let allNumbers: number = 0;
-  const onlyNumber = input.forEach((ele) => {
-    if (typeof ele === "number") {
-      allNumbers += ele;
-    }
-  });
-  console.log(allNumbers);
-}
+// function calculateSumOfNumbers(input: (number | object | boolean | string)[]) {
+//   let allNumbers: number = 0;
+//   const onlyNumber = input.forEach((ele) => {
+//     if (typeof ele === "number") {
+//       allNumbers += ele;
+//     }
+//   });
+//   console.log(allNumbers);
+// }
 
-calculateSumOfNumbers([10, "10", { son: 10 }, true, 35]);
+// calculateSumOfNumbers([10, "10", { son: 10 }, true, 35]);
 
 // TASK N:
 /*
