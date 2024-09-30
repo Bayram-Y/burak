@@ -24,10 +24,8 @@ $(function () {
   });
 
   $(".new-product-status").on("change", async function (e) {
-    const id = e.target.id;
-    const productStatus = $(`#${id}.new-product-status`).val();
-    console.log("id:", id);
-    console.log("productStatus:", productStatus);
+    const id = e.target.id,
+      productStatus = $(`#${id}.new-product-status`).val();
 
     try {
       const response = await axios.post(`/admin/product/${id}`, {
