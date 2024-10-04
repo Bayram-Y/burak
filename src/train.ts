@@ -1,3 +1,26 @@
+// TASK R
+/*
+Shunday function yozing, u string parametrga ega bo'lsin.
+Agar argument sifatida berilayotgan string, "1 + 2" bo'lsa,
+string ichidagi sonlarin yig'indisni hisoblab, number holatida qaytarsin
+
+MASALAN: calculate("1 + 3"); return 4;
+1 + 3 = 4, shu sababli 4 natijani qaytarmoqda.
+*/
+
+function calculate(input: string) {
+  let result = 0;
+  for (let i = 0; i < input.length; i++) {
+    if (Number(input[i])) {
+      let currentNumber = +input[i];
+      result += currentNumber;
+    }
+  }
+  console.log(result);
+}
+
+calculate("1 + 3");
+
 // TASK Q:
 /*
 Shunday function yozing, u 2 ta parametrga ega bo'lib
@@ -12,7 +35,7 @@ MASALAN: hasProperty({ name: "BMW", model: "M3" }, "year"); return false;
 Ushbu misolda, ikkinchi argument sifatida berilayotgan 'year' objectning
 propertysida mavjud bo'lmaganligi uchun 'false' natijani qaytarmoqda.
 */
-
+/*
 function hasProperty(input: object, word: string) {
   const result = Object.keys(input);
   console.log(result);
@@ -23,7 +46,7 @@ function hasProperty(input: object, word: string) {
 }
 
 hasProperty({ name: "BMW", model: "M3" }, "model");
-
+*/
 // TASK P:
 /*
 Parametr sifatida yagona object qabul qiladigan function yozing.
