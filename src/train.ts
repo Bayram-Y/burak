@@ -1,3 +1,25 @@
+// TASK W
+/*
+Shunday function yozing, u o'ziga parametr sifatida
+yagona array va number qabul qilsin. Siz tuzgan function
+arrayni numberda berilgan uzunlikda kesib bo'laklarga
+ajratgan holatida qaytarsin.
+MASALAN: chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3);
+return [[1, 2, 3], [4, 5, 6], [7, 8, 9], [10]];
+
+Yuqoridagi namunada berilayotgan array ikkinchi parametr 3'ga
+asoslanib 3 bo'lakga bo'linib qaytmoqda. Qolgani esa o'z holati qolyapti
+*/
+function chunkArray(arr: number[], size: number) {
+  let result = [];
+  for (let i = 0; i < arr.length; i += size) {
+    result.push(arr.slice(i, i + size));
+  }
+  console.log(result);
+}
+
+chunkArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 3);
+
 // TASK V
 /*
 Shunday function yozing, uni string parametri bo'lsin.
@@ -11,21 +33,21 @@ qatnashgan harflar necha marotaba takrorlangini bilan
 object sifatida qaytarilmoqda.
 */
 
-function countChars(input: string): { [key: string]: number } {
-  let charCount: { [key: string]: number } = {};
+// function countChars(input: string): { [key: string]: number } {
+//   let charCount: { [key: string]: number } = {};
 
-  for (let char of input) {
-    if (charCount[char]) {
-      charCount[char] += 1;
-    } else {
-      charCount[char] = 1;
-    }
-  }
+//   for (let char of input) {
+//     if (charCount[char]) {
+//       charCount[char] += 1;
+//     } else {
+//       charCount[char] = 1;
+//     }
+//   }
 
-  return charCount;
-}
+//   return charCount;
+// }
 
-console.log(countChars("hello"));
+// console.log(countChars("hello"));
 
 // TASK: U
 /*
