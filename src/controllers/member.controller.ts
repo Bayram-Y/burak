@@ -3,7 +3,7 @@ import { T } from "../libs/types/common";
 import MemberService from "../models/Member.service";
 import { LoginInput, Member, MemberInput } from "../libs/types/member";
 import { MemberType } from "../libs/enums/member.enum";
-import Errors, { HttpCode } from "../libs/Errors";
+import Errors, { HttpCode, Message } from "../libs/Errors";
 import AuthService from "../models/Auth.service";
 import { AUTH_TIMER } from "../libs/config";
 const memberService = new MemberService();
@@ -24,7 +24,6 @@ memberController.signup = async (req: Request, res: Response) => {
     });
     res.status(HttpCode.CREATED).json({ member: result, accessToken: token });
     //  TODO: TOKENS AUTHENTICATION :SIGNUP
-
   } catch (err) {
     console.log("Error, signup:", err);
     if (err instanceof Errors) res.status(err.code).json(err);
@@ -45,10 +44,29 @@ memberController.login = async (req: Request, res: Response) => {
     });
 
     //  TODO: TOKENS AUTHENTICATION :LOGIN
-
     res.status(HttpCode.OK).json({ member: result, accessToken: token });
   } catch (err) {
     console.log("Error, login:", err);
+    if (err instanceof Errors) res.status(err.code).json(err);
+    else res.status(Errors.standart.code).json(Errors.standart);
+  }
+};
+
+memberController.verifyAuth = async (req: Request, res: Response) => {
+  try {
+    let member = null;
+    const token = req.cookies["accessToken"];
+    console.log("tokenExampleString:===>", token);
+
+    if (token) member = await authService.checkAuth(token);
+
+    if (!member)
+      throw new Errors(HttpCode.UNAUTHORIZED, Message.NOT_AUTHENTICATED);
+
+    console.log("member:", member);
+    res.status(HttpCode.OK).json({ member: member });
+  } catch (err) {
+    console.log("Error, verifyAuth:", err);
     if (err instanceof Errors) res.status(err.code).json(err);
     else res.status(Errors.standart.code).json(Errors.standart);
   }
