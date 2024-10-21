@@ -12,6 +12,7 @@ ikkala array'da ishtirok etgan o'xshash sonlarni yagona arrayga
 joylab return qilmoqda.
 */
 
+
 function findIntersection(input: number[], input2: number[]) {
   let result: number[] = [];
 
