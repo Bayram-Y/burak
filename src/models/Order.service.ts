@@ -1,11 +1,17 @@
 import OrderItemModel from "../schema/OrderItem.model";
 import OrderModel from "../schema/Order.model";
 import { Member } from "../libs/types/member";
-import { Order, OrderItem, OrderItemInput } from "../libs/types/order";
+import {
+  Order,
+  OrderInquiry,
+  OrderItem,
+  OrderItemInput,
+} from "../libs/types/order";
 import { shapeIntoMongooseObjectId } from "../libs/config";
-import Errors, { Message } from "../libs/Errors";
-import { HttpCode } from "../libs/Errors";
+import Errors, { HttpCode, Message } from "../libs/Errors";
 import { ObjectId } from "mongoose";
+import { OrderStatus } from "../libs/enums/order.enum";
+
 class OrderService {
   private readonly orderModel;
   private readonly orderItemModel;
@@ -19,6 +25,8 @@ class OrderService {
     member: Member,
     input: OrderItemInput[]
   ): Promise<Order> {
+    console.log("example input:", input);
+
     const memberId = shapeIntoMongooseObjectId(member._id);
 
     const amount = input.reduce((accumulator: number, item: OrderItemInput) => {
@@ -26,6 +34,8 @@ class OrderService {
     }, 0);
 
     const delivery = amount < 100 ? 5 : 0;
+
+    console.log("values:", delivery, amount);
 
     try {
       const newOrder: Order = await this.orderModel.create({
@@ -50,7 +60,7 @@ class OrderService {
     input: OrderItemInput[]
   ): Promise<void> {
     const promisedList = input.map(async (item: OrderItemInput) => {
-      item.OrderId = orderId;
+      item.orderId = orderId;
       item.productId = shapeIntoMongooseObjectId(item.productId);
       await this.orderItemModel.create(item);
       return "Inserted";
@@ -59,6 +69,41 @@ class OrderService {
     const orderItemState = await Promise.all(promisedList);
 
     console.log("orderItemState:=>", orderItemState);
+  }
+
+  public async getMyOrders(
+    member: Member,
+    inquiry: OrderInquiry
+  ): Promise<Order[]> {
+    const memberId = shapeIntoMongooseObjectId(member._id);
+    const matches = { memberId: memberId, orderStatus: inquiry.orderStatus };
+
+    const result = await this.orderModel
+      .aggregate([
+        { $match: matches },
+        { $sort: { updateAt: -1 } },
+        { $skip: (inquiry.page - 1) * inquiry.limit },
+        { $limit: inquiry.limit },
+        {
+          $lookup: {
+            from: "orderItems",
+            localField: "_id",
+            foreignField: "orderId",
+            as: "orderItems",
+          },
+        },
+        {
+          $lookup: {
+            from: "products",
+            localField: "orderItems.productId",
+            foreignField: "_id",
+            as: "productData",
+          },
+        },
+      ])
+      .exec();
+    if (!result) throw new Errors(HttpCode.NOT_FOUND, Message.NO_DATA_FOUND);
+    return result;
   }
 }
 
